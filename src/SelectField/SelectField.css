@@ -9,6 +9,7 @@
     padding: 0 8px;
 	border-radius: 0;
 	-webkit-appearance: none;
+	width: 100%;
 }
 
 .SelectField:focus {

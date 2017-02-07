@@ -43,27 +43,37 @@ class App extends Component {
         return (
             <div className="App">
                 <div className="form">
-                    <Field label='Name'>
-                        <TextField onChange={this.onFieldChange('name')} value={this.state.name} />
-                    </Field>
-                    <Field label='Position'>
-                        <TextField onChange={this.onFieldChange('position')} value={this.state.position} />
-                    </Field>
-                    <Field label='Position description (optional)'>
-                        <TextField onChange={this.onFieldChange('positionDescription')} value={this.state.positionDescription} />
-                    </Field>
-                    <Field label='Phone'>
-                        <TextField onChange={this.onFieldChange('phone')} value={this.state.phone} />
-                    </Field>
-                    <Field label='Mobile'>
-                        <TextField onChange={this.onFieldChange('mobile')} value={this.state.mobile} />
-                    </Field>
-                    <Field label='Email'>
-                        <TextField onChange={this.onFieldChange('email')} value={this.state.email} />
-                    </Field>
-                    <Field label='Address'>
-                        <SelectField options={addresses} value={this.state.address} onChange={this.onFieldChange('address')} />
-                    </Field> 
+                    <div className="form-line">
+                        <Field label='Name'>
+                            <TextField onChange={this.onFieldChange('name')} value={this.state.name} />
+                        </Field>
+                    </div>
+                    <div className="form-line">
+                        <Field label='Position'>
+                            <TextField onChange={this.onFieldChange('position')} value={this.state.position} />
+                        </Field>
+                        <Field label='Position description (optional)'>
+                            <TextField onChange={this.onFieldChange('positionDescription')} value={this.state.positionDescription} />
+                        </Field>
+                    </div>
+                    <div className="form-line">
+                        <Field label='Phone'>
+                            <TextField onChange={this.onFieldChange('phone')} value={this.state.phone} />
+                        </Field>
+                        <Field label='Mobile'>
+                            <TextField onChange={this.onFieldChange('mobile')} value={this.state.mobile} />
+                        </Field>
+                    </div>
+                    <div className="form-line">
+                        <Field label='Email'>
+                            <TextField onChange={this.onFieldChange('email')} value={this.state.email} />
+                        </Field>
+                    </div>
+                    <div className="form-line">
+                        <Field label='Address'>
+                            <SelectField options={addresses} value={this.state.address} onChange={this.onFieldChange('address')} />
+                        </Field>
+                    </div>
                 </div>
                 <div className="banner">
                     {signature}

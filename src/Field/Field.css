@@ -1,5 +1,8 @@
 .Field {
+	position: relative;
+	display: inline-block;
 	padding: 8px;
+	width: 320px;
 }
 
 .Field-label {
