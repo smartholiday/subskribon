@@ -1,3 +1,28 @@
 .App {
     background-color: #F8F6FA;
+    color: #473b47;
+}
+
+.App-signature {
+    margin-top: 16px;
+    padding: 8px;
+    position: relative;
+}
+
+.App-signature::before {
+    content: '';
+    height: 2px;
+    position: absolute;
+    left: 16px;
+    right: 16px;
+    top: 20px;
+    background-color: #eae6ed;
+}
+
+.App-signature-label {
+    position: relative;
+    display: inline-block;
+    font-size: 20px;
+    background-color: #F8F6FA;
+    padding-right: 8px;
 }

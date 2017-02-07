@@ -42,8 +42,8 @@ class App extends Component {
         
         return (
             <div className="App">
-                <div className="form">
-                    <div className="form-line">
+                <div className="App-form">
+                    <div className="App-form-line">
                         <Field label='Name'>
                             <TextField onChange={this.onFieldChange('name')} value={this.state.name} />
                         </Field>
@@ -75,8 +75,9 @@ class App extends Component {
                         </Field>
                     </div>
                 </div>
-                <div className="banner">
-                    {signature}
+                <div className="App-signature">
+                    <div className="App-signature-label">Signature</div>
+                    <div className="App-signature-result">{signature}</div>
                 </div>
                 <button onClick={this.copyToClipboardHandler(signature)} >Copy to clipboard</button>
             </div>
