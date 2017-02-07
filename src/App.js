@@ -15,6 +15,7 @@ const addresses = [
 class App extends Component {
     constructor(props) {
         super(props);
+
         this.state = {
             full_name: 'Sir Weekendesk',
             position: 'Couch Killer',
@@ -23,12 +24,15 @@ class App extends Component {
             address: addresses[0]
         };
         
-        this.onNameChanged = event => { this.setState({ full_name: event.target.value }) };
-        this.onPositionChanged = event => { this.setState({ position: event.target.value }) };
-        this.onPhoneChanged = event => { this.setState({ phone: event.target.value }) };
-        this.onMobileChanged = event => { this.setState({ mobile: event.target.value }) };
-        this.onAddressChanged = address => { this.setState({ address }) };
-        this.copyToClipboardHandler = signature => () => copy(ReactDOMServer.renderToString(signature));
+        this.onFieldChange = name => event => {
+            this.setState({
+                [name]: event.target.value
+            });
+        };
+
+        this.copyToClipboardHandler = signature => () => {
+            copy(ReactDOMServer.renderToString(signature));
+        };
     }
     
     render() {
@@ -38,19 +42,19 @@ class App extends Component {
             <div className="App">
                 <div className="form">
                     <Field label='Full name'>
-                        <TextField onChange={this.onNameChanged} value={this.state.full_name} />
+                        <TextField onChange={this.onFieldChange('full_name')} value={this.state.full_name} />
                     </Field>
                     <Field label='Position'>
-                        <TextField onChange={this.onPositionChanged} value={this.state.position} />
+                        <TextField onChange={this.onFieldChange('position')} value={this.state.position} />
                     </Field>
                     <Field label='Phone'>
-                        <TextField onChange={this.onPhoneChanged} value={this.state.phone} />
+                        <TextField onChange={this.onFieldChange('phone')} value={this.state.phone} />
                     </Field>
                     <Field label='Mobile'>
-                        <TextField onChange={this.onMobileChanged} value={this.state.mobile} />
+                        <TextField onChange={this.onFieldChange('mobile')} value={this.state.mobile} />
                     </Field>
                     <Field label='Address'>
-                        <SelectField options={addresses} value={this.state.address} onChange={this.onAddressChanged} />
+                        <SelectField options={addresses} value={this.state.address} onChange={this.onFieldChange('address')} />
                     </Field> 
                 </div>
                 <div className="banner">
