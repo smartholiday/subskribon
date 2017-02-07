@@ -5,6 +5,8 @@ import CivilityPicker from './CivilityPicker';
 import AddressPicker from './AddressPicker';
 import copy from 'copy-to-clipboard';
 import ReactDOMServer from 'react-dom/server';
+import TextField from './TextField';
+import Field from './Field';
 
 class App extends Component {
     constructor(props) {
@@ -32,26 +34,32 @@ class App extends Component {
         return (
             <div className="App">
                 <div className="form">
-                    Civility: <CivilityPicker value={this.state.civility} onCivilityChanged={this.onCivilityChanged} />
-                <br/>
-                Full name: <input type='text' onChange={this.onNameChanged} value={this.state.full_name}/>
-            <br/>
-            Occupation: <input type='text' onChange={this.onOccupationChanged} value={this.state.occupation}/>
-        <br/>
-        Phone: <input type='text' onChange={this.onPhoneChanged} value={this.state.phone}/>
-    <br/>
-    Mobile: <input type='text' onChange={this.onMobileChanged} value={this.state.mobile}/>
-<br/>
-Address: <AddressPicker onAddressChanged={this.onAddressChanged} value={this.state.address} />
-</div>
-
-<div className="banner">
-    {signature}
-</div>
-<button onClick={this.copyToClipboardHandler(signature)} >Copy to clipboard</button>
-</div>
-);
-}
+                    <Field label='Civility'>
+                        <CivilityPicker value={this.state.civility} onCivilityChanged={this.onCivilityChanged} />
+                    </Field>
+                    <Field label='Full name'>
+                        <TextField onChange={this.onNameChanged} value={this.state.full_name} />
+                    </Field>
+                    <Field label='Occupation'>
+                        <TextField onChange={this.onOccupationChanged} value={this.state.occupation} />
+                    </Field>
+                    <Field label='Phone'>
+                        <TextField onChange={this.onPhoneChanged} value={this.state.phone} />
+                    </Field>
+                    <Field label='Mobile'>
+                        <TextField onChange={this.onMobileChanged} value={this.state.mobile} />
+                    </Field>
+                    <Field label='Address'>
+                        <AddressPicker onAddressChanged={this.onAddressChanged} value={this.state.address} />
+                    </Field> 
+                </div>
+                <div className="banner">
+                    {signature}
+                </div>
+                <button onClick={this.copyToClipboardHandler(signature)} >Copy to clipboard</button>
+            </div>
+        );
+    }
 }
 
 export default App;
