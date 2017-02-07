@@ -2,7 +2,7 @@
   "name": "subskribon",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://smartholiday.github.io/subskribon"
+  "homepage": "https://smartholiday.github.io/subskribon",
   "devDependencies": {
     "autoprefixer": "6.5.1",
     "babel-core": "6.17.0",
