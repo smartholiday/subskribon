@@ -26,3 +26,29 @@
     background-color: #F8F6FA;
     padding-right: 8px;
 }
+
+.App-signature-copy {
+    text-align: center;
+    height: 48px;
+    font-size: 18px;
+    line-height: 18px;
+    color: #fff;
+    outline: none;
+    background: #b60095;
+    border: none;
+    padding: 0 16px;
+    cursor: pointer;
+    margin: 24px;
+}
+
+.App-signature-copy:hover {
+    background: #95177f;
+}
+
+.App-explanation {
+    margin: 0 24px 24px;
+}
+
+.App-explanation--hidden {
+    opacity: 0;
+}

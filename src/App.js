@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
 import Signature from './Signature';
-import copy from 'copy-to-clipboard';
-import ReactDOMServer from 'react-dom/server';
 import TextField from './TextField';
 import Field from './Field';
 import SelectField from './SelectField';
@@ -23,23 +21,44 @@ class App extends Component {
             phone: '+33 2 44 81 80 03',
             mobile: '+34 934 453 767',
             email: 'contact@weekendesk.com',
-            address: addresses[0]
+            address: addresses[0],
+            copied: false
         };
         
-        this.onFieldChange = fieldName => event => {
+        this.onFieldChange = fieldName => this.getFieldChangeHandler(fieldName).bind(this);
+
+        this.onButtonClick = this.onButtonClick.bind(this);
+    }
+    
+    getFieldChangeHandler(fieldName) {
+        return event => {
             this.setState({
+                copied: false,
                 [fieldName]: event.target.value
             });
         };
-
-        this.copyToClipboardHandler = signature => () => {
-            copy(ReactDOMServer.renderToString(signature));
-        };
+    }
+    
+    onButtonClick() {
+        if (document.body.createTextRange) {
+    		const range = document.body.createTextRange();
+    		range.moveToElementText(this.signature);
+    		range.select();
+    	}else if (window.getSelection) {
+    		const selection = window.getSelection();        
+    		const range = document.createRange();
+    		range.selectNodeContents(this.signature);
+    		selection.removeAllRanges();
+    		selection.addRange(range);
+     	}
+        document.execCommand('copy');
+        window.getSelection().removeAllRanges();
+        this.setState({
+            copied: true
+        });
     }
     
     render() {
-        const signature = <Signature {...this.state}/>
-        
         return (
             <div className="App">
                 <div className="App-form">
@@ -77,9 +96,16 @@ class App extends Component {
                 </div>
                 <div className="App-signature">
                     <div className="App-signature-label">Signature</div>
-                    <div className="App-signature-result">{signature}</div>
+                    <div className="App-signature-result" ref={node => { this.signature = node; }}>
+                        <Signature {...this.state}/>
+                    </div>
                 </div>
-                <button onClick={this.copyToClipboardHandler(signature)} >Copy to clipboard</button>
+                <button className="App-signature-copy" onClick={this.onButtonClick}>
+                    {'Copy signature'}
+                </button>
+                <div className={`App-explanation ${this.state.copied ? '' : 'App-explanation--hidden'}`}>
+                    {'Now you can go paste it in your email client'}
+                </div>
             </div>
         );
     }
