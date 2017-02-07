@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
 import Signature from './Signature';
-import CivilityPicker from './CivilityPicker';
 import AddressPicker from './AddressPicker';
 import copy from 'copy-to-clipboard';
 import ReactDOMServer from 'react-dom/server';
@@ -12,14 +11,12 @@ class App extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            civility: '',
             full_name: '',
             occupation: '',
             phone: '',
             mobile: '',
             address: ''
         };
-        this.onCivilityChanged = civility => { this.setState({ civility }) };
         this.onNameChanged = event => { this.setState({ full_name: event.target.value }) };
         this.onOccupationChanged = event => { this.setState({ occupation: event.target.value }) };
         this.onPhoneChanged = event => { this.setState({ phone: event.target.value }) };
@@ -34,9 +31,6 @@ class App extends Component {
         return (
             <div className="App">
                 <div className="form">
-                    <Field label='Civility'>
-                        <CivilityPicker value={this.state.civility} onCivilityChanged={this.onCivilityChanged} />
-                    </Field>
                     <Field label='Full name'>
                         <TextField onChange={this.onNameChanged} value={this.state.full_name} />
                     </Field>
