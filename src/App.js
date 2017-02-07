@@ -19,6 +19,7 @@ class App extends Component {
         this.state = {
             name: 'Sir Weekendesk',
             position: 'Couch Killer',
+            positionDescription: '',
             phone: '+33 2 44 81 80 03',
             mobile: '+34 934 453 767',
             email: 'contact@weekendesk.com',
@@ -47,6 +48,9 @@ class App extends Component {
                     </Field>
                     <Field label='Position'>
                         <TextField onChange={this.onFieldChange('position')} value={this.state.position} />
+                    </Field>
+                    <Field label='Position description (optional)'>
+                        <TextField onChange={this.onFieldChange('positionDescription')} value={this.state.positionDescription} />
                     </Field>
                     <Field label='Phone'>
                         <TextField onChange={this.onFieldChange('phone')} value={this.state.phone} />
