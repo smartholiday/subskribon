@@ -2,9 +2,8 @@ import React from 'react';
 
 export default props => {
   const addresses = [
-    "",
     "21 Avenue Dubonnet, 92400 Courbevoie, France",
-    "Barcelone, Spain"
+    "C/ Comte de Urgell 240 - 8º B, Barcelona 08036, España"
   ];
 
   const options = addresses

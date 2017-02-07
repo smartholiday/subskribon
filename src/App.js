@@ -9,12 +9,12 @@ import Field from './Field';
 
 class App extends Component {
     constructor(props) {
-        super(props)
+        super(props);
         this.state = {
-            full_name: '',
-            occupation: '',
-            phone: '',
-            mobile: '',
+            full_name: 'Sir Weekendesk',
+            occupation: 'Couch Killer',
+            phone: '+33 2 44 81 80 03',
+            mobile: '+34 934 453 767',
             address: ''
         };
         this.onNameChanged = event => { this.setState({ full_name: event.target.value }) };
