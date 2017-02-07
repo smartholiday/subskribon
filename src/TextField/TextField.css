@@ -7,6 +7,7 @@
 	color: #473b47;
 	height: 40px;
     padding: 0 8px;
+	width: 300px;
 }
 
 .TextField:focus {

@@ -21,6 +21,7 @@ class App extends Component {
             position: 'Couch Killer',
             phone: '+33 2 44 81 80 03',
             mobile: '+34 934 453 767',
+            email: 'contact@weekendesk.com',
             address: addresses[0]
         };
         
@@ -52,6 +53,9 @@ class App extends Component {
                     </Field>
                     <Field label='Mobile'>
                         <TextField onChange={this.onFieldChange('mobile')} value={this.state.mobile} />
+                    </Field>
+                    <Field label='Email'>
+                        <TextField onChange={this.onFieldChange('email')} value={this.state.email} />
                     </Field>
                     <Field label='Address'>
                         <SelectField options={addresses} value={this.state.address} onChange={this.onFieldChange('address')} />
