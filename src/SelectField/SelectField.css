@@ -1,0 +1,16 @@
+.SelectField {
+	border-width: 2px;
+	border-style: solid;
+	border-color: #eae6ed;
+	outline: none;
+	font-size: 16px;
+	color: #473b47;
+	height: 40px;
+    padding: 0 8px;
+	border-radius: 0;
+	-webkit-appearance: none;
+}
+
+.SelectField:focus {
+	border-color: #b60095;
+}
