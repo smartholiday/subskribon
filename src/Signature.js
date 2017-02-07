@@ -1,7 +1,7 @@
-import React, { Component } from 'react'
-import logo from './logo.png'
+import React from 'react';
+import logo from './logo.png';
 
-export default (props) => {
+export default props => {
     const name = (
         <span>
             {[props.civility, props.full_name].filter(s => s !=="").join(' ')}
@@ -34,7 +34,7 @@ export default (props) => {
                 {props.address}
             </div>
 
-            <img src={logo}/>
+            <img src={logo} alt='logo'/>
         </div>
     )
 }
