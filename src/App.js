@@ -94,16 +94,16 @@ class App extends Component {
                         </Field>
                     </div>
                 </div>
+                <div className="App-signature-label">Result</div>
                 <div className="App-signature">
-                    <div className="App-signature-label">Signature</div>
                     <div className="App-signature-result" ref={node => { this.signature = node; }}>
                         <Signature {...this.state}/>
                     </div>
                 </div>
-                <button className="App-signature-copy" onClick={this.onButtonClick}>
+                <button className="App-copy" onClick={this.onButtonClick}>
                     {'Copy signature'}
                 </button>
-                <div className={`App-explanation ${this.state.copied ? '' : 'App-explanation--hidden'}`}>
+                <div className={`App-copy-explanation ${this.state.copied ? '' : 'App-copy-explanation--hidden'}`}>
                     {'Now you can go paste it in your email client'}
                 </div>
             </div>

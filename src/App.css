@@ -4,30 +4,26 @@
 }
 
 .App-signature {
-    margin-top: 16px;
+    display: inline-block;
     padding: 8px;
     position: relative;
-}
-
-.App-signature::before {
-    content: '';
-    height: 2px;
-    position: absolute;
-    left: 16px;
-    right: 16px;
-    top: 20px;
-    background-color: #eae6ed;
+    background-color: white;
+    border-width: 2px;
+    border-color: #eae6ed;
+    border-style: solid;
+    padding: 0 16px 16px;
+    margin: 8px;
+    background-color: white;
 }
 
 .App-signature-label {
-    position: relative;
-    display: inline-block;
+    font-weight: bold;
     font-size: 20px;
-    background-color: #F8F6FA;
-    padding-right: 8px;
+    padding: 8px;
+    margin-top: 32px;
 }
 
-.App-signature-copy {
+.App-copy {
     text-align: center;
     height: 48px;
     font-size: 18px;
@@ -38,17 +34,21 @@
     border: none;
     padding: 0 16px;
     cursor: pointer;
-    margin: 24px;
+    margin: 8px;
+    vertical-align: bottom;
 }
 
-.App-signature-copy:hover {
+.App-copy:hover {
     background: #95177f;
 }
 
-.App-explanation {
-    margin: 0 24px 24px;
+.App-copy-explanation {
+    display: inline-block;
+    margin: 8px;
+    vertical-align: bottom;
+    line-height: 48px;
 }
 
-.App-explanation--hidden {
+.App-copy-explanation--hidden {
     opacity: 0;
 }
