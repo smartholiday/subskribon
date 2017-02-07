@@ -17,14 +17,14 @@ class App extends Component {
         super(props);
         this.state = {
             full_name: 'Sir Weekendesk',
-            occupation: 'Couch Killer',
+            position: 'Couch Killer',
             phone: '+33 2 44 81 80 03',
             mobile: '+34 934 453 767',
             address: addresses[0]
         };
         
         this.onNameChanged = event => { this.setState({ full_name: event.target.value }) };
-        this.onOccupationChanged = event => { this.setState({ occupation: event.target.value }) };
+        this.onPositionChanged = event => { this.setState({ position: event.target.value }) };
         this.onPhoneChanged = event => { this.setState({ phone: event.target.value }) };
         this.onMobileChanged = event => { this.setState({ mobile: event.target.value }) };
         this.onAddressChanged = address => { this.setState({ address }) };
@@ -40,8 +40,8 @@ class App extends Component {
                     <Field label='Full name'>
                         <TextField onChange={this.onNameChanged} value={this.state.full_name} />
                     </Field>
-                    <Field label='Occupation'>
-                        <TextField onChange={this.onOccupationChanged} value={this.state.occupation} />
+                    <Field label='Position'>
+                        <TextField onChange={this.onPositionChanged} value={this.state.position} />
                     </Field>
                     <Field label='Phone'>
                         <TextField onChange={this.onPhoneChanged} value={this.state.phone} />
