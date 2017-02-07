@@ -17,16 +17,16 @@ class App extends Component {
         super(props);
 
         this.state = {
-            full_name: 'Sir Weekendesk',
+            name: 'Sir Weekendesk',
             position: 'Couch Killer',
             phone: '+33 2 44 81 80 03',
             mobile: '+34 934 453 767',
             address: addresses[0]
         };
         
-        this.onFieldChange = name => event => {
+        this.onFieldChange = fieldName => event => {
             this.setState({
-                [name]: event.target.value
+                [fieldName]: event.target.value
             });
         };
 
@@ -41,8 +41,8 @@ class App extends Component {
         return (
             <div className="App">
                 <div className="form">
-                    <Field label='Full name'>
-                        <TextField onChange={this.onFieldChange('full_name')} value={this.state.full_name} />
+                    <Field label='Name'>
+                        <TextField onChange={this.onFieldChange('name')} value={this.state.name} />
                     </Field>
                     <Field label='Position'>
                         <TextField onChange={this.onFieldChange('position')} value={this.state.position} />
