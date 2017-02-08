@@ -18,8 +18,9 @@ class App extends Component {
             name: 'Sir Weekendesk',
             position: 'Couch Killer',
             positionDescription: '',
-            phone: '+33 2 44 81 80 03',
-            mobile: '+34 934 453 767',
+            phone: '+34 934 453 767 ext. 261',
+            mobile: '+33 6 44 81 80 03',
+            fax: '',
             address: addresses[0],
             copied: false
         };
@@ -80,6 +81,9 @@ class App extends Component {
                         </Field>
                         <Field label='Mobile'>
                             <TextField onChange={this.onFieldChange('mobile')} value={this.state.mobile} />
+                        </Field>
+                        <Field label='Fax'>
+                            <TextField onChange={this.onFieldChange('fax')} value={this.state.fax} />
                         </Field>
                     </div>
                     <div className="form-line">

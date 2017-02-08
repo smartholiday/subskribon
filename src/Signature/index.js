@@ -57,29 +57,25 @@ const phoneSeparatorStyle = {
 }
 
 const Phones = props => {
-    const hasBothNumbers = props.phone && props.mobile;
+    const phones = [
+        { number: props.phone, label: 'Tel :' },
+        { number: props.mobile, label: 'Mob :' },
+        { number: props.fax, label: 'Fax :' }
+    ];
     return (
         <p style={lineStyle}>
-            { props.phone
-                ? <span style={phoneLabelStyle}>Tel :</span>
-                : undefined
-            }
-            { props.phone
-                ? <PhoneNumber number={props.phone} />
-                : undefined
-            }
-            { hasBothNumbers
-                ? <span style={phoneSeparatorStyle}>|</span>
-                : undefined
-            }
-            { props.mobile
-                ? <span style={phoneLabelStyle}>Mob :</span>
-                : undefined
-            }
-            { props.mobile
-                ? <PhoneNumber number={props.mobile} />
-                : undefined
-            }
+            { phones.reduce((toDisplay, phone) => {
+                const isFirst = toDisplay.length > 0;
+                if (phone.number) {
+                    return toDisplay.concat(
+                        isFirst ? <span style={phoneSeparatorStyle}>|</span> : undefined,
+                        <span key={phone.label} style={phoneLabelStyle}>{phone.label}</span>,
+                        <PhoneNumber key={phone.number} number={phone.number} />
+                    );
+                }
+                
+                return toDisplay;
+            }, [])}
         </p>
     )
 }
