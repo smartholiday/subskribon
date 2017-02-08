@@ -20,7 +20,6 @@ class App extends Component {
             positionDescription: '',
             phone: '+33 2 44 81 80 03',
             mobile: '+34 934 453 767',
-            email: 'contact@weekendesk.com',
             address: addresses[0],
             copied: false
         };
@@ -81,11 +80,6 @@ class App extends Component {
                         </Field>
                         <Field label='Mobile'>
                             <TextField onChange={this.onFieldChange('mobile')} value={this.state.mobile} />
-                        </Field>
-                    </div>
-                    <div className="form-line">
-                        <Field label='Email'>
-                            <TextField onChange={this.onFieldChange('email')} value={this.state.email} />
                         </Field>
                     </div>
                     <div className="form-line">

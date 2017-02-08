@@ -83,11 +83,6 @@ const Phones = props => {
         </p>
     )
 }
-
-const Email = ({ email }) =>
-    <p style={lineStyle}>
-        <a style={linkStyle} href={`mailto:${email}`}>{email}</a>
-    </p>
     
 const logoStyle = {
     width: '145px'
@@ -109,10 +104,6 @@ export default props =>
         <Position {...props} />
         { props.phone || props.mobile
             ? <Phones {...props} />
-            : undefined
-        }
-        { props.email
-            ? <Email {...props} />
             : undefined
         }
         <Logo />
