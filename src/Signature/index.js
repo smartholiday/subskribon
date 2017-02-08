@@ -1,17 +1,16 @@
 import React from 'react';
 import logo from './logo.png';
-import './Signature.css';
 
 const lineStyle = {
     margin: '4px 0',
     color: '#473b47',
-    fontSize: 'small'
+    fontSize: 'small',
+    fontFamily: 'tahoma,sans-serif'
 }
 
 const nameStyle = {
     ...lineStyle,
     fontWeight: 'bold',
-    fontSize: 'medium',
     marginTop: '16px'
 };
 
@@ -61,7 +60,7 @@ const Phones = props => {
     const hasBothNumbers = props.phone && props.mobile;
     return (
         <p style={lineStyle}>
-            { hasBothNumbers
+            { props.phone
                 ? <span style={phoneLabelStyle}>Tel :</span>
                 : undefined
             }
@@ -73,7 +72,7 @@ const Phones = props => {
                 ? <span style={phoneSeparatorStyle}>|</span>
                 : undefined
             }
-            { hasBothNumbers
+            { props.mobile
                 ? <span style={phoneLabelStyle}>Mob :</span>
                 : undefined
             }
