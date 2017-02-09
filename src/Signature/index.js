@@ -42,7 +42,7 @@ const Position = props =>
     </p>
 
 const linkStyle = {
-    color: '#b60095'
+    color: '#473b47'
 };
 
 const PhoneNumber = ({ number, label }) =>
@@ -58,8 +58,8 @@ const phoneSeparatorStyle = {
 
 const Phones = props => {
     const phones = [
-        { number: props.phone, label: 'Tel :' },
-        { number: props.mobile, label: 'Mob :' },
+        { number: props.phone, label: 'Tel. :' },
+        { number: props.mobile, label: 'Mob. :' },
         { number: props.fax, label: 'Fax :' }
     ];
     return (
