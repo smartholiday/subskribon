@@ -6,7 +6,7 @@ import Field from './Field';
 import SelectField from './SelectField';
 
 const addresses = [
-  "21 Avenue Dubonnet, 92400 Courbevoie, France",
+  "19-21 Avenue Dubonnet, 92400 Courbevoie, France",
   "C/ Comte de Urgell 240 - 8º B, Barcelona 08036, España"
 ];
 
