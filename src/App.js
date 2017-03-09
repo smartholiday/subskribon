@@ -6,7 +6,7 @@ import Field from './Field';
 import SelectField from './SelectField';
 
 const addresses = [
-  "19-21 Avenue Dubonnet, 92400 Courbevoie, France",
+  "19-21 avenue Dubonnet, 92400 Courbevoie, France",
   "C/ Comte de Urgell 240 - 8º B, Barcelona 08036, España"
 ];
 
@@ -19,17 +19,17 @@ class App extends Component {
             position: 'Couch Killer',
             positionDescription: '',
             phone: '+34 934 453 767 ext. 261',
-            mobile: '+33 6 44 81 80 03',
+            mobile: '',
             fax: '',
             address: addresses[0],
             copied: false
         };
-        
+
         this.onFieldChange = fieldName => this.getFieldChangeHandler(fieldName).bind(this);
 
         this.onButtonClick = this.onButtonClick.bind(this);
     }
-    
+
     getFieldChangeHandler(fieldName) {
         return event => {
             this.setState({
@@ -38,14 +38,14 @@ class App extends Component {
             });
         };
     }
-    
+
     onButtonClick() {
         if (document.body.createTextRange) {
     		const range = document.body.createTextRange();
     		range.moveToElementText(this.signature);
     		range.select();
     	}else if (window.getSelection) {
-    		const selection = window.getSelection();        
+    		const selection = window.getSelection();
     		const range = document.createRange();
     		range.selectNodeContents(this.signature);
     		selection.removeAllRanges();
@@ -57,7 +57,7 @@ class App extends Component {
             copied: true
         });
     }
-    
+
     render() {
         return (
             <div className="App">

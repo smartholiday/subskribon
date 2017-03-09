@@ -14,7 +14,7 @@ const nameStyle = {
     marginTop: '16px'
 };
 
-const Name = props => 
+const Name = props =>
     <p style={nameStyle}>{props.name}</p>
 
 const positionDescriptionStyle = {
@@ -58,7 +58,7 @@ const phoneSeparatorStyle = {
 
 const Phones = props => {
     const phones = [
-        { number: props.phone, label: 'Tel. :' },
+        { number: props.phone, label: 'Tel.:' },
         { number: props.mobile, label: 'Mob. :' },
         { number: props.fax, label: 'Fax :' }
     ];
@@ -73,22 +73,22 @@ const Phones = props => {
                         <PhoneNumber key={phone.number} number={phone.number} />
                     );
                 }
-                
+
                 return toDisplay;
             }, [])}
         </p>
     )
 }
-    
+
 const logoStyle = {
     width: '145px'
 }
-    
+
 const Logo = () =>
-    <p style={lineStyle}>
-        <img style={logoStyle} src={logo} alt='logo' width='145px'/>
-    </p>
-    
+    <div style={lineStyle}>
+        <img style={logoStyle} src={logo} alt='logo' width='145px' height='38px'/>
+    </div>
+
 const Address = ({ address }) =>
     <p style={lineStyle}>
         {address}
