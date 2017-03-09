@@ -59,8 +59,8 @@ const phoneSeparatorStyle = {
 const Phones = props => {
     const phones = [
         { number: props.phone, label: 'Tel.:' },
-        { number: props.mobile, label: 'Mob. :' },
-        { number: props.fax, label: 'Fax :' }
+        { number: props.mobile, label: 'Mob.:' },
+        { number: props.fax, label: 'Fax:' }
     ];
     return (
         <p style={lineStyle}>
