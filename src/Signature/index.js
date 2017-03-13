@@ -45,6 +45,11 @@ const linkStyle = {
     color: '#473b47'
 };
 
+const imageStyle = {
+  margin: '4px 0',
+  border: 'none'
+};
+
 const PhoneNumber = ({ number, label }) =>
     <a style={linkStyle} href={`tel:${number}`}>{number}</a>
 
@@ -81,13 +86,14 @@ const Phones = props => {
 }
 
 const logoStyle = {
-    width: '145px'
+    width: '145px',
+    height: '38px'
 }
 
-const Logo = () =>
-    <div style={lineStyle}>
+const Logo = ({ website }) =>
+    <a href={website} style={imageStyle}>
         <img style={logoStyle} src={logo} alt='logo' width='145px' height='38px'/>
-    </div>
+    </a>
 
 const Address = ({ address }) =>
     <p style={lineStyle}>
@@ -102,6 +108,6 @@ export default props =>
             ? <Phones {...props} />
             : undefined
         }
-        <Logo />
+        <Logo {...props} />
         <Address {...props} />
     </div>

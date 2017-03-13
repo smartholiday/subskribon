@@ -10,6 +10,11 @@ const addresses = [
   "C/ Comte de Urgell 240 - 8º B, Barcelona 08036, España"
 ];
 
+const websites = [
+  "http://www.weekendesk.fr",
+  "http://www.weekendesk.es"
+];
+
 class App extends Component {
     constructor(props) {
         super(props);
@@ -22,6 +27,7 @@ class App extends Component {
             mobile: '',
             fax: '',
             address: addresses[0],
+            website: websites[0],
             copied: false
         };
 
@@ -89,6 +95,11 @@ class App extends Component {
                     <div className="form-line">
                         <Field label='Address'>
                             <SelectField options={addresses} value={this.state.address} onChange={this.onFieldChange('address')} />
+                        </Field>
+                    </div>
+                    <div className="form-line">
+                        <Field label='Website'>
+                            <SelectField options={websites} value={this.state.website} onChange={this.onFieldChange('website')} />
                         </Field>
                     </div>
                 </div>
