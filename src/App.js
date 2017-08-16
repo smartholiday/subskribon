@@ -12,7 +12,10 @@ const addresses = [
 
 const websites = [
   "http://www.weekendesk.fr",
-  "http://www.weekendesk.es"
+  "http://www.weekendesk.es",
+  "http://www.weekendesk.it",
+  "http://www.weekendesk.nl",
+  "http://www.weekendesk.be"
 ];
 
 class App extends Component {
