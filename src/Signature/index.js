@@ -1,113 +1,60 @@
 import React from 'react';
-import logo from './logo.png';
-
-const lineStyle = {
-    margin: '4px 0',
-    color: '#473b47',
-    fontSize: 'small',
-    fontFamily: 'tahoma,sans-serif'
-}
-
-const nameStyle = {
-    ...lineStyle,
-    fontWeight: 'bold',
-    marginTop: '16px'
-};
-
-const Name = props =>
-    <p style={nameStyle}>{props.name}</p>
-
-const positionDescriptionStyle = {
-    fontWeight: 'normal',
-    fontStyle: 'italic',
-    paddingLeft: '8px'
-};
-
-const PositionDescription = props =>
-    <span style={positionDescriptionStyle}>{props.positionDescription}</span>
-
-const positionStyle = {
-    ...lineStyle,
-    fontWeight: 'bold',
-    marginBottom: '12px'
-};
-
-const Position = props =>
-    <p style={positionStyle}>
-        {props.position}
-        {props.positionDescription
-            ? <PositionDescription {...props} />
-            : undefined
-        }
-    </p>
-
-const linkStyle = {
-    color: '#473b47'
-};
-
-const imageStyle = {
-  margin: '4px 0',
-  border: 'none'
-};
-
-const PhoneNumber = ({ number, label }) =>
-    <a style={linkStyle} href={`tel:${number}`}>{number}</a>
-
-const phoneLabelStyle = {
-    paddingRight: '4px'
-}
-
-const phoneSeparatorStyle = {
-    padding: '0 4px'
-}
 
 const Phones = props => {
     const phones = [
-        { number: props.phone, label: 'Tel.:' },
-        { number: props.mobile, label: 'Mob.:' },
-        { number: props.fax, label: 'Fax:' }
+        (props.phone && { number: props.phone, label: 'Tel.:' }),
+        (props.mobile && { number: props.mobile, label: 'Mob.:' }),
+        (props.fax && { number: props.fax, label: 'Fax:' })
     ];
     return (
-        <p style={lineStyle}>
-            { phones.reduce((toDisplay, phone) => {
-                const isFirst = toDisplay.length > 0;
-                if (phone.number) {
-                    return toDisplay.concat(
-                        isFirst ? <span style={phoneSeparatorStyle}>|</span> : undefined,
-                        <span key={phone.label} style={phoneLabelStyle}>{phone.label}</span>,
-                        <PhoneNumber key={phone.number} number={phone.number} />
-                    );
-                }
-
-                return toDisplay;
-            }, [])}
+        <p>
+            {phones.map((phone) =>
+                phone && (
+                <div>
+                    <span key={phone.label} style={{ paddingRight: '4px' }}>{phone.label}</span>
+                    <a style={{ color: '#473b47' }} href={`tel:${phone.number}`}>{phone.number}</a>
+                </div>
+            ))}
         </p>
-    )
-}
+    );
+};
 
-const logoStyle = {
-    width: '145px',
-    height: '38px'
-}
-
-const Logo = ({ website }) =>
-    <a href={website} style={imageStyle}>
-        <img style={logoStyle} src={logo} alt='logo' width='145px' height='38px'/>
+const Address = ({ address }) => (
+    <a
+      style={{ color: '#473b47' }}
+      href={address.includes('France')
+        ? 'https://www.google.com/maps/place/Weekendesk/@48.8865295,2.3064978,17z/data=!3m1!4b1!4m5!3m4!1s0x47e66fbb4602542d:0x842f4a2edb4b339b!8m2!3d48.8865295!4d2.3086865'
+        : 'https://www.google.com/maps/place/Weekendesk/@41.3902023,2.1483218,15z/data=!4m2!3m1!1s0x0:0x73ef8bd9421eab80?sa=X&ved=2ahUKEwjHrpq1nM7kAhUQlhQKHTKmBfsQ_BIwE3oECA8QCA'
+    }>
+        {address.split(',').map((line) => <div>{line}</div>)}
     </a>
-
-const Address = ({ address }) =>
-    <p style={lineStyle}>
-        {address}
-    </p>
+);
 
 export default props =>
-    <div>
-        <Name {...props} />
-        <Position {...props} />
-        { props.phone || props.mobile
-            ? <Phones {...props} />
-            : undefined
-        }
-        <Logo {...props} />
+    <div
+        style={{
+            fontFamily: 'Open Sans,sans-serif',
+            lineHeight: '24px',
+            fontSize: '16px',
+            color: 'rgb(5, 0, 35)',
+        }}
+    >
+        <p style={{ margin: '8px 0px' }}>
+            –
+            <br/>
+            <strong>{props.name}</strong>
+            <br/>
+            <strong>{props.position}</strong>
+            {props.positionDescription && <span> {props.positionDescription}</span>}
+        </p>
+        <Phones {...props} />
+        <a href={props.website} style={{ border: '0' }}>
+            <img
+                src='https://res.cloudinary.com/weekendesk/image/upload/f_auto,q_auto,h_64/v1567782504/assets/weekendesk-brand.png'
+                alt='logo'
+                width='145px'
+                height='38px'
+            />
+        </a>
         <Address {...props} />
     </div>

@@ -6,7 +6,7 @@ import Field from './Field';
 import SelectField from './SelectField';
 
 const addresses = [
-  "75 rue de Tocqueville 75017 Paris, France",
+  "75 rue de Tocqueville, 75017 Paris, France",
   "C/ Comte de Urgell 240 - 8º B, Barcelona 08036, España"
 ];
 
@@ -50,16 +50,16 @@ class App extends Component {
 
     onButtonClick() {
         if (document.body.createTextRange) {
-    		const range = document.body.createTextRange();
-    		range.moveToElementText(this.signature);
-    		range.select();
-    	}else if (window.getSelection) {
-    		const selection = window.getSelection();
-    		const range = document.createRange();
-    		range.selectNodeContents(this.signature);
-    		selection.removeAllRanges();
-    		selection.addRange(range);
-     	}
+            const range = document.body.createTextRange();
+            range.moveToElementText(this.signature);
+            range.select();
+        }else if (window.getSelection) {
+            const selection = window.getSelection();
+            const range = document.createRange();
+            range.selectNodeContents(this.signature);
+            selection.removeAllRanges();
+            selection.addRange(range);
+        }
         document.execCommand('copy');
         window.getSelection().removeAllRanges();
         this.setState({

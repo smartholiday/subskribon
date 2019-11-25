@@ -30,7 +30,7 @@
     line-height: 18px;
     color: #fff;
     outline: none;
-    background: #b60095;
+    background: #ff285a;
     border: none;
     padding: 0 16px;
     cursor: pointer;
@@ -39,7 +39,7 @@
 }
 
 .App-copy:hover {
-    background: #95177f;
+    background: #ef6777;
 }
 
 .App-copy-explanation {
